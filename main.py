@@ -24,9 +24,11 @@ app.layout = html.Div(children=[
     ]), 
     html.Div(className='mx-auto max-w-7xl px-2 py-4', children=[
         html.Div(className='flex gap-6 justify-center', children=[
-            dcc.Link(html.Button('Edo 1er Orden', className='px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700'), href='/'),
-            dcc.Link(html.Button('Edo 2er Orden', className='px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700'), href='/Edo2')
-        ])
+            dcc.Link(html.Button('Primer ejemplo', className='px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700'), href='/'),
+            dcc.Link(html.Button('Segundo ejemplo', className='px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700'), href='/Edo2'),
+            dcc.Link(html.Button('Tercer ejemplo', className='px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700'), href='/Edo3'),
+            dcc.Link(html.Button('Cuarto ejemplo', className='px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700'), href='/Edo4'),
+        ]),
     ]),
     html.Div(className='mx-auto max-w-7xl px-2 py-4', children=[
         dash.page_container

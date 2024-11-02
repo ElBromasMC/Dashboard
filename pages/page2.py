@@ -48,7 +48,6 @@ layout = html.Div(className='flex flex-col gap-6 lg:flex-row', children=[
             dcc.Loading(type='default', children=dcc.Graph(id='figura_2'))
         ])
     ])
-   
 ])
 
 # Callback
