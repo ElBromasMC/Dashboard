@@ -114,9 +114,13 @@ layout = html.Div(className="space-y-9", children=[
                 ]),
             ]),
         ]),
+        html.Div(className="", children=[
+            html.Span(className="font-semibold", children="Tasa de reproducción básica: "),
+            html.Span(id="basic"),
+        ]),
         # Sección de gráfica
         html.Div(className="flex-1", children=[
-            html.H2('Resultados'),
+            html.H2(className="font-semibold text-center text-2xl", children='Resultados'),
             html.Div(className='grid grid-cols-3 gap-6', children=[
                 html.Div(className="col-span-3", children=dcc.Loading(type='default', children=dcc.Graph(id='COMPLETO'))),
                 html.Div(className="col-span-1", children=dcc.Loading(type='default', children=dcc.Graph(id='suceptibles'))),
@@ -141,6 +145,7 @@ layout = html.Div(className="space-y-9", children=[
     Output('infectado', 'figure'),
     Output('asintomatico', 'figure'),
     Output('recuperado', 'figure'),
+    Output('basic', 'children'),
     Input('pob_ini', 'value'),
     Input('pob_exp', 'value'),
     Input('pob_inf', 'value'),
@@ -168,11 +173,11 @@ def grafic_SIR_model(N, E, I, A, R, t, Lambda, mu, lambda1, xi1, xi2, beta, p1, 
     p = [p1, p2]
 
     # Generate the graphs
-    fig = SIARS(populations, t, Lambda, mu, lambda1, xi, beta, p, alpha, delta, psi, eta)
+    fig, R_0 = SIARS(populations, t, Lambda, mu, lambda1, xi, beta, p, alpha, delta, psi, eta)
     
     # Unpack the figures
     fig_t = fig[0]  # Combined figure
     individual_figs = fig[1]  # List of individual compartment figures
 
     # Return the combined figure for the 'COMPLETO' graph, and the individual graphs for the others
-    return fig_t, individual_figs[0], individual_figs[1], individual_figs[2], individual_figs[3], individual_figs[4]
+    return fig_t, individual_figs[0], individual_figs[1], individual_figs[2], individual_figs[3], individual_figs[4], R_0

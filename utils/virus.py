@@ -78,4 +78,11 @@ def SIARS (populations, t, Lambda, mu, lambda1, xi, beta, p, alpha, delta, psi, 
         template='plotly_white'
     )
 
-    return [fig_t,fig]
+    # Calcular R_0
+
+    xi1, xi2 = xi
+    p1, p2 = p
+
+    R_0 = np.sqrt((alpha*beta*Lambda/(mu*(alpha + mu)))*((p1/(psi + mu + xi2))+ (lambda1*(1 - p1 - p2)/(delta + mu + xi1))))
+
+    return [fig_t,fig], R_0
