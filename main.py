@@ -16,8 +16,8 @@ app = Dash(
 app.layout = html.Div(children=[
     html.Div(className='mx-auto max-w-7xl px-2 py-4 bg-blue-400', children=[
         html.Div(className='flex flex-col items-center gap-3', children=[
-            html.Div(className='w-48 aspect-square overflow-hidden rounded-full', children=[
-                html.Img(className='w-full h-full object-cover', src="assets/logo.jpg")
+            html.Div(className='w-48 aspect-square overflow-hidden', children=[
+                html.Img(className='w-full h-full object-cover', src="assets/dog.png")
             ]),
             dcc.Link(html.H1(className='font-bold text-3xl text-white', children="Interfaz Gráfica"), href='/')
         ])
@@ -28,6 +28,7 @@ app.layout = html.Div(children=[
             dcc.Link(html.Button('Segundo ejemplo', className='px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700'), href='/Edo2'),
             dcc.Link(html.Button('Tercer ejemplo', className='px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700'), href='/Edo3'),
             dcc.Link(html.Button('Cuarto ejemplo', className='px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700'), href='/Edo4'),
+            dcc.Link(html.Button('Proyecto', className='px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700'), href='/project'),
         ]),
     ]),
     html.Div(className='mx-auto max-w-7xl px-2 py-4', children=[
