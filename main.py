@@ -45,9 +45,29 @@ app.layout = html.Div(children=[
                 html.Span("22140367")
             ])
         ]),
-
+        html.Div(className='h-full flex flex-col justify-center items-center gap-3 text-white', children=[
+            html.P(children=[
+                html.Strong("Alumno: "),
+                html.Span("Vilchez Quispe, Yoshiro Cardich")
+            ]),
+            html.P(children=[
+                html.Strong("Código: "),
+                html.Span("22140122")
+            ])
+        ]),
+        html.Div(className='h-full flex flex-col justify-center items-center gap-3 text-white', children=[
+            html.P(children=[
+                html.Strong("Alumno: "),
+                html.Span("Espinoza Huaman, Diego Alexhander")
+            ]),
+            html.P(children=[
+                html.Strong("Código: "),
+                html.Span("22140106")
+            ])
+        ]),
     ]), 
 ])
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, port='1254')
+
