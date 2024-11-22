@@ -46,24 +46,25 @@ def solve_and_plot_sir(S0, I0, R0, beta, psi, alpha, t_max=100, num_points=1000)
     # Crear la figura con las 3 gráficas juntas
     fig_combined = make_subplots(rows=1, cols=1)
 
-    fig_combined.add_trace(go.Scatter(x=t, y=S, mode='lines', name='Susceptibles (S)'))
-    fig_combined.add_trace(go.Scatter(x=t, y=I, mode='lines', name='Infectados (I)'))
-    fig_combined.add_trace(go.Scatter(x=t, y=R, mode='lines', name='Recuperados (R)'))
+    fig_combined.add_trace(go.Scatter(x=t, y=S, mode='lines', name='Susceptibles (S)', line=dict(color='blue')))
+    fig_combined.add_trace(go.Scatter(x=t, y=I, mode='lines', name='Infectados (I)', line=dict(color='orange')))
+    fig_combined.add_trace(go.Scatter(x=t, y=R, mode='lines', name='Recuperados (R)', line=dict(color='green')))
 
     fig_combined.update_layout(title='Modelo SIR',
                                 xaxis_title='Tiempo (años)',
                                 yaxis_title='Número de dispositivos',
+                                template='plotly_white',
                                 legend=dict(x=0.7, y=0.95))
 
     # Crear las figuras individuales
-    fig_S = go.Figure(data=[go.Scatter(x=t, y=S, mode='lines', name='Susceptibles (S)')])
-    fig_S.update_layout(title='Susceptibles (S)', xaxis_title='Tiempo (años)', yaxis_title='Número de dispositivos')
+    fig_S = go.Figure(data=[go.Scatter(x=t, y=S, mode='lines', name='Susceptibles (S)', line=dict(color='blue'))])
+    fig_S.update_layout(title='Susceptibles (S)', xaxis_title='Tiempo (años)', yaxis_title='Número de dispositivos', template='plotly_white')
 
-    fig_I = go.Figure(data=[go.Scatter(x=t, y=I, mode='lines', name='Infectados (I)')])
-    fig_I.update_layout(title='Infectados (I)', xaxis_title='Tiempo (años)', yaxis_title='Número de dispositivos')
+    fig_I = go.Figure(data=[go.Scatter(x=t, y=I, mode='lines', name='Infectados (I)', line=dict(color='orange'))])
+    fig_I.update_layout(title='Infectados (I)', xaxis_title='Tiempo (años)', yaxis_title='Número de dispositivos', template='plotly_white')
 
-    fig_R = go.Figure(data=[go.Scatter(x=t, y=R, mode='lines', name='Recuperados (R)')])
-    fig_R.update_layout(title='Recuperados (R)', xaxis_title='Tiempo (años)', yaxis_title='Número de dispositivos')
+    fig_R = go.Figure(data=[go.Scatter(x=t, y=R, mode='lines', name='Recuperados (R)', line=dict(color='green'))])
+    fig_R.update_layout(title='Recuperados (R)', xaxis_title='Tiempo (años)', yaxis_title='Número de dispositivos', template='plotly_white')
 
     return fig_combined, fig_S, fig_I, fig_R
 
